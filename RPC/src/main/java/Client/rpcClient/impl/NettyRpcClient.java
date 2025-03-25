@@ -3,6 +3,8 @@ package Client.rpcClient.impl;
 
 import Client.netty.nettyInitializer.NettyClientInitializer;
 import Client.rpcClient.RpcClient;
+import Client.serviceCenter.ServiceCenter;
+import Client.serviceCenter.impl.ZKServiceCenter;
 import common.message.RpcRequest;
 import common.message.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
@@ -13,6 +15,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 
+import java.net.InetSocketAddress;
+
 /**
  * @author JoestarZQ
  * @version 3.14
@@ -20,13 +24,12 @@ import io.netty.util.AttributeKey;
  * @description ...
  */
 public class NettyRpcClient implements RpcClient {
-    private String host;
-    private int port;
     private static final Bootstrap bootstrap;
     private static final EventLoopGroup eventLoopGroup;
-    public NettyRpcClient(String host, int port) {
-        this.host = host;
-        this.port = port;
+
+    private ServiceCenter serviceCenter;
+    public NettyRpcClient() {
+        this.serviceCenter = new ZKServiceCenter();
     }
     static {
         eventLoopGroup = new NioEventLoopGroup();
@@ -36,6 +39,10 @@ public class NettyRpcClient implements RpcClient {
     }
     @Override
     public RpcResponse sendRequest(RpcRequest rpcRequest) throws ClassNotFoundException {
+        //从注册中心获取host和port
+        InetSocketAddress address = serviceCenter.serviceDiscovery(rpcRequest.getInterfaceName());
+        String host = address.getHostName();
+        int port = address.getPort();
         try {
             ChannelFuture channelFuture = bootstrap.connect(host, port).sync();
             Channel channel = channelFuture.channel();

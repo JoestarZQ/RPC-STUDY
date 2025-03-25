@@ -20,17 +20,8 @@ import java.lang.reflect.Proxy;
  */
 public class ClientProxy implements InvocationHandler {
     private RpcClient rpcClient;
-    public ClientProxy(String host, int port, int choose) {
-        switch (choose) {
-            case 0:
-                rpcClient = new NettyRpcClient(host, port);
-                break;
-            case 1:
-                rpcClient = new SimpleSocketRpcClient(host, port);
-        }
-    }
-    public ClientProxy(String host, int port) {
-        rpcClient = new NettyRpcClient(host, port);
+    public ClientProxy() {
+        rpcClient = new NettyRpcClient();
     }
 
     @Override
