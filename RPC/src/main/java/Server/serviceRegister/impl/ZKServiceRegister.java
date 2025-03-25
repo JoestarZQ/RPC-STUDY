@@ -12,7 +12,7 @@ import java.net.InetSocketAddress;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/25
- * @description ...
+ * @description 使用 Zookeeper 实现的服务注册
  */
 public class ZKServiceRegister implements ServiceRegister {
     private CuratorFramework client;

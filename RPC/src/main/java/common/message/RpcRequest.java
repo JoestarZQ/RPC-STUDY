@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 封装的请求类，包括调用的类名、方法名、参数等
  */
 @Data
 @Builder

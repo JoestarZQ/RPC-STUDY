@@ -14,7 +14,7 @@ import io.netty.handler.codec.serialization.ObjectEncoder;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/24
- * @description ...
+ * @description Netty 客户端通道初始化器，配置编码器、解码器和 handler
  */
 public class NettyClientInitializer extends ChannelInitializer<SocketChannel> {
     /*

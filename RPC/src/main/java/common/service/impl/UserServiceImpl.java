@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 用户服务接口的实现类，供服务端注册和暴露
  */
 public class UserServiceImpl implements UserService {
 

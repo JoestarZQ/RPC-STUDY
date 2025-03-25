@@ -16,7 +16,7 @@ import java.lang.reflect.Proxy;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 核心动态代理类，封装了 RPC 调用逻辑，使调用方像调用本地方法一样使用远程服务
  */
 public class ClientProxy implements InvocationHandler {
     private RpcClient rpcClient;

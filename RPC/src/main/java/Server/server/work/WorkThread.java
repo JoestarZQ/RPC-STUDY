@@ -16,7 +16,7 @@ import java.net.Socket;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 用于处理客户端请求的工作线程
  */
 @AllArgsConstructor
 public class WorkThread implements Runnable{

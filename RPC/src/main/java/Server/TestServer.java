@@ -12,7 +12,7 @@ import common.service.impl.UserServiceImpl;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 启动服务端进行测试的入口类
  */
 public class TestServer {
     public static void main(String[] args) {

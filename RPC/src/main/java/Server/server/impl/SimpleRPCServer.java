@@ -13,7 +13,7 @@ import java.net.Socket;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 使用传统 IO 实现的简单 RPC 服务端
  */
 @AllArgsConstructor
 public class SimpleRPCServer implements RpcServer {

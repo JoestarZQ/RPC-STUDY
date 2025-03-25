@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/24
- * @description ...
+ * @description Netty 服务端初始化器，配置 pipeline、编解码器等
  */
 @AllArgsConstructor
 public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {

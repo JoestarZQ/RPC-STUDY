@@ -8,7 +8,7 @@ import common.service.UserService;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 客户端的测试入口，调用 RPC 服务进行测试
  */
 public class TestClient {
     public static void main(String[] args) {

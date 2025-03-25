@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 使用线程池的 RPC 服务端实现，提高并发处理能力
  */
 public class ThreadPoolRPCServer implements RpcServer {
     private final ThreadPoolExecutor threadPool;

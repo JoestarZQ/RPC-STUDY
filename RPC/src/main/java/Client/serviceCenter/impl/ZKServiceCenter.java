@@ -13,7 +13,7 @@ import java.util.List;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/25
- * @description ...
+ * @description 使用 Zookeeper 实现的服务发现
  */
 public class ZKServiceCenter implements ServiceCenter {
     private CuratorFramework client;

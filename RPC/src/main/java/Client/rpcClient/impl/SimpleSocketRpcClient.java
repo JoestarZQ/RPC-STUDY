@@ -8,13 +8,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 /**
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/24
- * @description ...
+ * @description 使用传统 Socket 实现的简单 RPC 客户端
  */
 public class SimpleSocketRpcClient implements RpcClient {
     private String host;

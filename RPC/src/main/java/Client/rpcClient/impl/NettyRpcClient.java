@@ -21,7 +21,7 @@ import java.net.InetSocketAddress;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/24
- * @description ...
+ * @description 使用 Netty 实现的 RPC 客户端
  */
 public class NettyRpcClient implements RpcClient {
     private static final Bootstrap bootstrap;

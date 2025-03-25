@@ -11,7 +11,7 @@ import java.util.Map;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 服务注册接口，用于将本地服务注册到服务注册中心
  */
 public class ServiceProvider {
     private Map<String, Object> interfaceProvider;

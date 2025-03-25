@@ -12,7 +12,7 @@ import java.net.Socket;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 使用传统 IO 实现的简单客户端，用于发送请求
  */
 public class IOClient {
     public static RpcResponse sendRequest(String host, int port, RpcRequest request) {

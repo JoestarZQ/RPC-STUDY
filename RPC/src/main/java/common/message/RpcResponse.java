@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 封装的响应类，包含调用结果或错误信息
  */
 @Data
 @Builder

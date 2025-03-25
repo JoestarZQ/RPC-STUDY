@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author JoestarZQ
  * @version 3.14
  * @date 2025/3/22
- * @description ...
+ * @description 示例数据类，表示一个用户对象
  */
 @Builder
 @Data
