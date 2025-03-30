@@ -1,7 +1,9 @@
 package common.message;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -11,17 +13,21 @@ import java.io.Serializable;
  * @date 2025/3/22
  * @description 封装的响应类，包含调用结果或错误信息
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class RpcResponse implements Serializable {
     //状态信息
     private int code;
     private String message;
+    //更新：加入传输数据的类型，以便在自定义序列化器中解析
+    private Class<?> dataType;
     //具体数据
     private Object data;
     //构造成功信息
     public static RpcResponse success(Object data) {
-        return RpcResponse.builder().code(200).data(data).build();
+        return RpcResponse.builder().code(200).dataType(data.getClass()).data(data).build();
     }
     //构造失败信息（userService.getUserByUserId(id)）
     public static RpcResponse fail() {

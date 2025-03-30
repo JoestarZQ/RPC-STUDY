@@ -2,6 +2,9 @@ package Server.netty.nettyInitializer;
 
 import Server.netty.handler.NettyServerHandler;
 import Server.provider.ServiceProvider;
+import common.serializer.myCode.MyDecoder;
+import common.serializer.myCode.MyEncoder;
+import common.serializer.mySerializer.impl.JsonSerializer;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -24,17 +27,19 @@ public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        //|----4字节长度----|----消息内容（字节）----|
-        pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
-        //|长度（4字节）|真正消息内容|
-        pipeline.addLast(new LengthFieldPrepender(4));
-        pipeline.addLast(new ObjectEncoder());
-        pipeline.addLast(new ObjectDecoder(new ClassResolver() {
-            @Override
-            public Class<?> resolve(String className) throws ClassNotFoundException {
-                return Class.forName(className);
-            }
-        }));
+        pipeline.addLast(new MyDecoder());
+        pipeline.addLast(new MyEncoder(new JsonSerializer()));
+//        //|----4字节长度----|----消息内容（字节）----|
+//        pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
+//        //|长度（4字节）|真正消息内容|
+//        pipeline.addLast(new LengthFieldPrepender(4));
+//        pipeline.addLast(new ObjectEncoder());
+//        pipeline.addLast(new ObjectDecoder(new ClassResolver() {
+//            @Override
+//            public Class<?> resolve(String className) throws ClassNotFoundException {
+//                return Class.forName(className);
+//            }
+//        }));
         pipeline.addLast(new NettyServerHandler(serviceProvider));
     }
 }
