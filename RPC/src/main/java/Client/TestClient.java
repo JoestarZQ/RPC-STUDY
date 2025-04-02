@@ -11,7 +11,7 @@ import common.service.UserService;
  * @description 客户端的测试入口，调用 RPC 服务进行测试
  */
 public class TestClient {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         ClientProxy clientProxy = new ClientProxy();
         UserService proxy = clientProxy.getProxy(UserService.class);
 

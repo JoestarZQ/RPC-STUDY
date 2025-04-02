@@ -4,7 +4,7 @@ package Client.rpcClient.impl;
 import Client.netty.nettyInitializer.NettyClientInitializer;
 import Client.rpcClient.RpcClient;
 import Client.serviceCenter.ServiceCenter;
-import Client.serviceCenter.impl.ZKServiceCenter;
+import Client.serviceCenter.ZKServiceCenter;
 import common.message.RpcRequest;
 import common.message.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
@@ -28,7 +28,7 @@ public class NettyRpcClient implements RpcClient {
     private static final EventLoopGroup eventLoopGroup;
 
     private ServiceCenter serviceCenter;
-    public NettyRpcClient() {
+    public NettyRpcClient() throws InterruptedException{
         this.serviceCenter = new ZKServiceCenter();
     }
     static {
